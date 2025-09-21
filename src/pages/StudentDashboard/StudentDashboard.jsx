@@ -14,7 +14,6 @@ import "./StudentDashboard.css";
 const StudentDashboard = () => {
   const { user } = useAuth();
 
-  // Dummy attendance data
   const attendanceData = [
     { month: "Jan", attendance: 75 },
     { month: "Feb", attendance: 80 },
@@ -24,7 +23,6 @@ const StudentDashboard = () => {
     { month: "Jun", attendance: 88 },
   ];
 
-  // Latest attendance
   const latestAttendance =
     attendanceData[attendanceData.length - 1]?.attendance || 0;
 
@@ -37,7 +35,7 @@ const StudentDashboard = () => {
     >
       {/* Header */}
       <header className="dashboard-header">
-        <div className="header-content flex items-center justify-center gap-4">
+        <div className="header-content">
           <img
             src={
               user?.profilePic ||
@@ -46,28 +44,28 @@ const StudentDashboard = () => {
             alt="Profile"
             className="dashboard-profile-pic"
           />
-          <div>
-            <h2 className="welcome-text">
-              Welcome <span>{user?.name}</span> 
+          <div className="header-text">
+            <h2>
+              Welcome, <span>{user?.name}</span> 👋
             </h2>
-            <p>Your Academic Dashboard</p>
+            <p>Your personalized academic dashboard</p>
           </div>
         </div>
       </header>
 
       {/* Dashboard Grid */}
       <div className="dashboard-grid">
-        {/* Attendance Card */}
+        {/* Attendance */}
         <motion.div
           className="card attendance-card"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
           <h3>📊 Attendance Report</h3>
           <div className="attendance-chart-wrapper">
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={280}>
               <LineChart data={attendanceData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="month" stroke="#aaa" />
                 <YAxis stroke="#aaa" />
                 <Tooltip
@@ -103,25 +101,25 @@ const StudentDashboard = () => {
           </p>
         </motion.div>
 
-        {/* Events Card */}
+        {/* Events */}
         <motion.div
-          className="card"
-          whileHover={{ scale: 1.02 }}
+          className="card events-card"
+          whileHover={{ scale: 1.03 }}
           transition={{ type: "spring", stiffness: 200 }}
         >
           <h3>📅 Upcoming Events</h3>
           <div className="events-list">
             <div className="event-item">
-              <div className="event-date">25 Sept</div>
-              <div className="event-title">Hackathon 🖥️</div>
+              <span className="event-date">25 Sept</span>
+              <span className="event-title">Hackathon 🖥️</span>
             </div>
             <div className="event-item">
-              <div className="event-date">28 Sept</div>
-              <div className="event-title">Seminar 🎤</div>
+              <span className="event-date">28 Sept</span>
+              <span className="event-title">Seminar 🎤</span>
             </div>
             <div className="event-item">
-              <div className="event-date">30 Sept</div>
-              <div className="event-title">Workshop 🛠️</div>
+              <span className="event-date">30 Sept</span>
+              <span className="event-title">Workshop 🛠️</span>
             </div>
           </div>
         </motion.div>

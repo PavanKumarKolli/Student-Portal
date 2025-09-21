@@ -1,93 +1,100 @@
+/* ========== Teacher Dashboard Styles ========== */
 .teacher-dashboard {
-  padding: 20px;
-  background: #0d0d0d;
-  min-height: 100vh;
+  padding: 1rem;
   color: #fff;
-  font-family: "Poppins", sans-serif;
 }
 
+/* Header */
 .dashboard-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 .dashboard-header h2 {
-  font-size: 1.8rem;
-  line-height: 1.2;
+  font-size: 1.6rem;
+  margin-bottom: 0.3rem;
 }
-.highlight {
+.dashboard-header .highlight {
   color: #f36100;
 }
 
+/* Filter bar */
 .filter-bar {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
-  gap: 10px;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
 }
 .filter-bar select,
 .filter-bar button {
-  padding: 10px 14px;
-  border: none;
+  padding: 0.5rem 0.8rem;
   border-radius: 6px;
-  font-size: 0.9rem;
-}
-.filter-bar select {
-  background: #1a1a1a;
-  color: #fff;
+  border: none;
+  font-size: 0.95rem;
 }
 .filter-bar button {
   background: #f36100;
   color: #fff;
   cursor: pointer;
-  transition: background 0.2s ease;
 }
 .filter-bar button:hover {
-  background: #ff6d12;
+  background: #d65000;
 }
 
+/* Stats grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 .stat-card {
-  background: #1a1a1a;
-  padding: 15px;
+  background: #1f1f1f;
+  padding: 1rem;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid #2b2b2b;
 }
-.stat-card span {
+.stat-card h4 {
   color: #f36100;
-  font-weight: bold;
 }
 
-.card {
-  background: #1a1a1a;
+/* Performance Card */
+.performance-card {
+  background: #1f1f1f;
+  padding: 1rem;
   border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #2b2b2b;
+  margin-bottom: 1.5rem;
 }
 
-.table-container {
-  overflow-x: auto; /* ✅ enables horizontal scroll on mobile */
+/* Student & Attendance Card */
+.student-card,
+.attendance-card {
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
 }
-table {
+
+/* Table Container - Add scroll for mobile */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-container table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  min-width: 700px; /* Ensures horizontal scroll on small screens */
+}
+.table-container th,
+.table-container td {
+  padding: 0.6rem;
+  border: 1px solid #333;
+  text-align: left;
   font-size: 0.9rem;
 }
-th, td {
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #333;
-  white-space: nowrap; /* ✅ prevents text wrapping in narrow screens */
-}
-th {
-  background: #111;
+.table-container th {
+  background: #2b2b2b;
   color: #f36100;
 }
 .student-pic {
@@ -96,59 +103,46 @@ th {
   border-radius: 50%;
 }
 
+/* Attendance */
+.attendance-section {
+  margin-bottom: 1rem;
+}
 .present {
-  color: #00ff88;
+  color: #4caf50;
   font-weight: bold;
 }
 .absent {
-  color: #ff4444;
+  color: #f44336;
   font-weight: bold;
 }
 
-/* 📱 Mobile Responsiveness */
+/* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
-  .teacher-dashboard{
-    height:auto;
-    overflow-y:visible;
-  }
   .dashboard-header h2 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .filter-bar {
     flex-direction: column;
     align-items: stretch;
   }
-  .filter-bar select,
-  .filter-bar button {
-    width: 100%;
-    font-size: 0.85rem;
-  }
 
   .stats-grid {
     grid-template-columns: 1fr 1fr;
   }
 
-  table {
-    font-size: 0.8rem;
-  }
-  th, td {
-    padding: 6px;
+  .student-card h3,
+  .attendance-card h3 {
+    font-size: 1rem;
   }
 }
 
-/* 📱 Extra Small (phones < 480px) */
 @media (max-width: 480px) {
-  .dashboard-header h2 {
-    font-size: 1.2rem;
-  }
   .stats-grid {
-    grid-template-columns: 1fr; 
+    grid-template-columns: 1fr;
   }
-  table {
-    font-size: 0.75rem;
-  }
-  .filter-bar {
-    gap: 6px;
+
+  .dashboard-header p {
+    font-size: 0.9rem;
   }
 }

@@ -1,147 +1,101 @@
+/* Dashboard Container */
 .student-dashboard {
-  padding: 1.5rem;
-  background: #000; /* Pure black background */
-  color: #f5f5f5;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1e1e1e, #121212);
+  color: #fff;
   min-height: 100vh;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Header */
 .dashboard-header {
-  text-align: center;
+  background: linear-gradient(90deg, #f36100, #ff8c42);
+  border-radius: 16px;
+  padding: 1.5rem;
   margin-bottom: 2rem;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(243, 97, 0, 0.4);
 }
 
 .header-content {
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
 }
 
-/* Stylish Welcome Text */
-.welcome-text {
-  font-family: "Brush Script MT", "Lucida Handwriting", cursive;
-  font-size: 2.2rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #f36100, #ff8c42, #ffbd69);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s infinite alternate;
-  margin-bottom: 0.3rem;
-}
-
-@keyframes shine {
-  from {
-    background-position: 0% 50%;
-  }
-  to {
-    background-position: 100% 50%;
-  }
-}
-
-.welcome-text span {
-  font-size: 2.4rem;
-  font-style: italic;
-  text-shadow: 2px 2px 6px rgba(243, 97, 0, 0.4);
-}
-
-.dashboard-header p {
-  color: #aaa;
-  font-size: 1rem;
-  margin-top: 0.3rem;
-}
-
-/* Profile Pic */
 .dashboard-profile-pic {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  border: 3px solid #f36100;
-  box-shadow: 0 4px 12px rgba(243, 97, 0, 0.4);
-  margin-right: 1rem;
-  transition: transform 0.3s ease;
+  border: 3px solid #fff;
+  object-fit: cover;
 }
 
-.dashboard-profile-pic:hover {
-  transform: scale(1.1) rotate(3deg);
+.header-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-/* Grid Layout */
+.header-text span {
+  color: #ffe9d6;
+}
+
+.header-text p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Dashboard Grid */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
-  justify-items: center;
 }
 
-/* Cards */
 .card {
-  width: 100%;
-  max-width: 400px;
-  background: #111; /* Slightly lighter than black for contrast */
-  border-radius: 14px;
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
-  transition: all 0.3s ease-in-out;
-  border: 1px solid transparent;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border: 1px solid #f36100;
-  box-shadow: 0 8px 20px rgba(243, 97, 0, 0.6);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
 }
 
 .card h3 {
   font-size: 1.2rem;
-  font-weight: 600;
   margin-bottom: 1rem;
-  color: #f5f5f5;
+  color: #f36100;
 }
 
-/* Attendance Card */
-.attendance-card {
-  grid-column: span 2;
-  text-align: center;
-}
-
-.attendance-chart-wrapper {
-  width: 100%;
-  padding: 1rem 0;
-}
-
+/* Attendance */
 .attendance-summary {
   margin-top: 1rem;
   font-size: 1rem;
-  color: #ccc;
 }
 
 .attendance-summary span {
   font-weight: bold;
   color: #f36100;
-  font-size: 1.1rem;
 }
 
 /* Events */
 .events-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .event-item {
-  background: #1a1a1a;
-  border-left: 4px solid #f36100;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  transition: all 0.2s ease;
+  background: #222;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border-left: 4px solid #f36100;
+  transition: background 0.3s ease;
 }
 
 .event-item:hover {
-  transform: translateX(5px);
-  background: #222;
+  background: #2a2a2a;
 }
 
 .event-date {
@@ -150,33 +104,17 @@
 }
 
 .event-title {
-  font-size: 1rem;
-  font-weight: 600;
-  background: linear-gradient(90deg, #f36100, #ff8c42, #ffbd69);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 4px rgba(243, 97, 0, 0.5);
-  letter-spacing: 0.5px;
+  font-size: 0.95rem;
 }
-
 
 /* Responsive */
 @media (max-width: 768px) {
-  .attendance-card {
-    grid-column: span 1;
+  .dashboard-grid {
+    grid-template-columns: 1fr;
   }
 
-  .dashboard-header h2 {
-    font-size: 1.6rem;
-  }
-
-  .card {
-    padding: 1rem;
-    width: 90%;
-  }
-
-  .student-dashboard {
-    height: auto;
-    padding-bottom: 3rem;
+  .header-content {
+    flex-direction: column;
+    text-align: center;
   }
 }
