@@ -1,0 +1,135 @@
+.profile-container {
+  padding: 30px;
+  max-width: 850px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.profile-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #f36100;
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@media (min-width: 768px) {
+  .profile-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Profile Picture Wrapper */
+.profile-pic-wrapper {
+  text-align: center;
+  flex: 0 0 200px;
+}
+
+.profile-pic-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #f36100;
+  object-fit: cover;
+  background: url("https://via.placeholder.com/140") center/cover no-repeat;
+}
+
+/* Edit icon (pencil overlay) */
+.edit-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #f36100;
+  color: #fff;
+  padding: 6px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.edit-icon:hover {
+  background: #d94f00;
+}
+
+.edit-icon input {
+  display: none;
+}
+
+/* Profile Form */
+.profile-form {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 768px) {
+  .profile-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.profile-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.profile-input,
+.profile-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.profile-input:focus,
+.profile-select:focus {
+  outline: none;
+  border-color: #f36100;
+  box-shadow: 0 0 5px rgba(243, 97, 0, 0.3);
+}
+
+/* Save Button */
+.save-btn {
+  background-color: #f36100;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+  background-color: #d94f00;
+}
+
+.save-btn:active {
+  background-color: #b84300;
+}

@@ -1,0 +1,154 @@
+/* ========== Navbar ========== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000; /* Black background */
+  color: white;
+  padding: 0.8rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left - Time */
+.navbar-time {
+  font-weight: 600;
+  color: #f36100;
+  font-size: 1.1rem;
+}
+
+/* Center - Greeting */
+.navbar-greeting {
+  font-size: 1.1rem;
+}
+.username {
+  font-weight: bold;
+  color: #f36100;
+}
+
+/* Right - Actions */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Bell Icon */
+.navbar-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.navbar-icon:hover {
+  transform: scale(1.1);
+  color: #f36100;
+}
+
+/* Notification wrapper */
+.notification-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #f36100;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Profile Image */
+.navbar-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f36100;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.3s ease;
+}
+.navbar-profile:hover {
+  transform: scale(1.05);
+  border-color: white;
+}
+
+/* ========== Modals ========== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal h2 {
+  margin-bottom: 1rem;
+  color: #f36100;
+}
+
+.modal p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.modal-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border: 2px solid #f36100;
+}
+
+.close-btn {
+  margin-top: 1rem;
+  background: #f36100;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.close-btn:hover {
+  background: #d95300;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;  /* ✅ stay in row */
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: left;
+  }
+
+  .navbar-actions {
+    gap: 0.8rem;
+  }
+}   

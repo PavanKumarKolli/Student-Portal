@@ -1,0 +1,88 @@
+.events-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.events-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: left;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+.event-icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.event-icon.hackathon {
+  color: #007bff;
+}
+
+.event-icon.seminar {
+  color: #28a745;
+}
+
+.event-icon.fest {
+  color: #ff5733;
+}
+
+.event-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.event-date,
+.event-time {
+  font-size: 14px;
+  color: #666;
+  margin: 3px 0;
+}
+
+.event-desc {
+  font-size: 14px;
+  margin-top: 10px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+    .events-container {
+        padding: 2px;
+        height: 140%;
+    }
+  .events-title {
+    font-size: 22px;
+  }
+
+  .event-card {
+    padding: 16px;
+  }
+
+  .event-icon {
+    font-size: 32px;
+  }
+}
