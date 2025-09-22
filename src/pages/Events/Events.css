@@ -71,8 +71,9 @@
 /* 📱 Mobile responsiveness */
 @media (max-width: 600px) {
     .events-container {
+      /* background-color: #222; */
         padding: 2px;
-        height: 140%;
+        height: 130vh;
     }
   .events-title {
     font-size: 22px;

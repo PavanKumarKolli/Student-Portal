@@ -9,6 +9,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 2px solid #f36100; /* Added bottom border */
 }
 
 /* Left - Time */

@@ -76,27 +76,33 @@
   margin-bottom: 1.5rem;
 }
 
-/* Table Container - Add scroll for mobile */
-.table-container {
-  width: 100%;
-  overflow-x: auto;
-}
+/* Table Container */
 .table-container table {
   width: 100%;
   border-collapse: collapse;
   min-width: 700px; /* Ensures horizontal scroll on small screens */
 }
+
 .table-container th,
 .table-container td {
   padding: 0.6rem;
   border: 1px solid #333;
   text-align: left;
   font-size: 0.9rem;
+  transition: color 0.2s ease; /* smooth color change */
 }
+
 .table-container th {
   background: #2b2b2b;
   color: #f36100;
 }
+
+/* Row hover effect - text only */
+.table-container tbody tr:hover td {
+  color: #f36100;   /* highlight text in orange */
+  background: transparent; /* ✅ keep background same */
+}
+
 .student-pic {
   width: 40px;
   height: 40px;

@@ -1,4 +1,4 @@
-import { useAuth } from "../../context/AuthContext";
+import { useState } from "react";
 import {
   LineChart,
   Line,
@@ -9,22 +9,17 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { motion } from "framer-motion";
+// import { dummyUser, dummyAttendance, dummyEvents } from "../../data/dummyData";
 import "./StudentDashboard.css";
+import { dummyAttendance, dummyEvents } from "../../data/dummyData";
+import { students } from "../../data/students";
+
 
 const StudentDashboard = () => {
-  const { user } = useAuth();
-
-  const attendanceData = [
-    { month: "Jan", attendance: 75 },
-    { month: "Feb", attendance: 80 },
-    { month: "Mar", attendance: 78 },
-    { month: "Apr", attendance: 85 },
-    { month: "May", attendance: 90 },
-    { month: "Jun", attendance: 88 },
-  ];
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   const latestAttendance =
-    attendanceData[attendanceData.length - 1]?.attendance || 0;
+    dummyAttendance[dummyAttendance.length - 1]?.attendance || 0;
 
   return (
     <motion.div
@@ -36,17 +31,15 @@ const StudentDashboard = () => {
       {/* Header */}
       <header className="dashboard-header">
         <div className="header-content">
-          <img
-            src={
-              user?.profilePic ||
-              "https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-            }
+          <img 
+          // src={students.profilepic}
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUap_zjVTvyxIREha9IvJfUqdj5wMe-FRLZ5T8i1MckH49NxPvPBnXHGCsfUIiWuF30lI&usqp=CAU"
             alt="Profile"
             className="dashboard-profile-pic"
           />
           <div className="header-text">
             <h2>
-              Welcome, <span>{user?.name}</span> 👋
+              Welcome, <span>{students.name}</span> 👋
             </h2>
             <p>Your personalized academic dashboard</p>
           </div>
@@ -64,7 +57,7 @@ const StudentDashboard = () => {
           <h3>📊 Attendance Report</h3>
           <div className="attendance-chart-wrapper">
             <ResponsiveContainer width="100%" height={280}>
-              <LineChart data={attendanceData}>
+              <LineChart data={dummyAttendance}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                 <XAxis dataKey="month" stroke="#aaa" />
                 <YAxis stroke="#aaa" />
@@ -109,21 +102,42 @@ const StudentDashboard = () => {
         >
           <h3>📅 Upcoming Events</h3>
           <div className="events-list">
-            <div className="event-item">
-              <span className="event-date">25 Sept</span>
-              <span className="event-title">Hackathon 🖥️</span>
-            </div>
-            <div className="event-item">
-              <span className="event-date">28 Sept</span>
-              <span className="event-title">Seminar 🎤</span>
-            </div>
-            <div className="event-item">
-              <span className="event-date">30 Sept</span>
-              <span className="event-title">Workshop 🛠️</span>
-            </div>
+            {dummyEvents.map((event, index) => (
+              <div
+                key={index}
+                className="event-item"
+                onClick={() => setSelectedEvent(event)}
+                style={{ cursor: "pointer" }}
+              >
+                <span className="event-date">{event.date}</span>
+                <span className="event-title">{event.title}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
+
+      {/* Event Details Modal */}
+      {selectedEvent && (
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedEvent(null)}
+        >
+          <motion.div
+            className="modal"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2>{selectedEvent.title}</h2>
+            <p>{selectedEvent.details}</p>
+            <button className="close-btn" onClick={() => setSelectedEvent(null)}>
+              Close
+            </button>
+          </motion.div>
+        </div>
+      )}
     </motion.div>
   );
 };

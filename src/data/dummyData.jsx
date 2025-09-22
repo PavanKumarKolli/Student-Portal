@@ -139,3 +139,39 @@ export const performanceData = [
   { name: "CSE-C", avg: 72 },
   { name: "CSE-D", avg: 80 },
 ];
+// src/data/dummyData.js
+
+// export const dummyUser = {
+//   name: "John Doe",
+//   profilePic: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+// };
+
+export const dummyAttendance = [
+  { month: "Jan", attendance: 75 },
+  { month: "Feb", attendance: 80 },
+  { month: "Mar", attendance: 78 },
+  { month: "Apr", attendance: 85 },
+  { month: "May", attendance: 90 },
+  { month: "Jun", attendance: 88 },
+];
+
+export const dummyEvents = [
+  {
+    date: "25 Sept",
+    title: "Hackathon 🖥️",
+    details:
+      "Join our 24-hour coding Hackathon to build innovative solutions. Open to all students.",
+  },
+  {
+    date: "28 Sept",
+    title: "Seminar 🎤",
+    details:
+      "Attend the seminar on AI and Machine Learning with industry experts.",
+  },
+  {
+    date: "30 Sept",
+    title: "Workshop 🛠️",
+    details:
+      "Hands-on workshop on Web Development using React.js and Node.js.",
+  },
+];

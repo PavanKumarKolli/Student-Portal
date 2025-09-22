@@ -137,15 +137,18 @@
 }
 
 @media (max-width: 768px) {
+  
   .desktop-only {
     display: none;
   }
 
   .mobile-only {
     display: flex;
+    /* border: 1px solid red; */
   }
 
   .sidebar {
-    display: none; /* hide sidebar on mobile */
+    display: none;
+    height: 10px; /* hide sidebar on mobile */
   }
 }

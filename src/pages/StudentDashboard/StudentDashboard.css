@@ -1,10 +1,11 @@
 /* Dashboard Container */
 .student-dashboard {
-  padding: 2rem;
+   padding: 2rem;
   background: linear-gradient(135deg, #1e1e1e, #121212);
   color: #fff;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
+  /* width: 100%; */
 }
 
 /* Header */
@@ -15,6 +16,10 @@
   margin-bottom: 2rem;
   color: #fff;
   box-shadow: 0 4px 15px rgba(243, 97, 0, 0.4);
+   display: flex;
+  flex-direction: column;
+  /* align-items: end; */
+
 }
 
 .header-content {
@@ -116,5 +121,10 @@
   .header-content {
     flex-direction: column;
     text-align: center;
+  }
+  .student-dashboard{
+    height: 130vh;
+    overflow-y: scroll;
+    /* border: 1px solid red; */
   }
 }
